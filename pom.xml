@@ -11,14 +11,13 @@
 
 
     <dependencies>
-        <!--
-    <dependency>
-        <groupId>org.academiadecodigo.simplegraphics</groupId>
-        <artifactId>simplegraphics</artifactId>
-        <version>1.0</version>
-    </dependency>
-        -->
+        <dependency>
+            <groupId>org.academiadecodigo.simplegraphics</groupId>
+            <artifactId>simplegraphics</artifactId>
+            <version>1.0</version>
+        </dependency>
     </dependencies>
+
 
     <build>
         <plugins>
@@ -26,23 +25,59 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.5.1</version>
+                <version>3.8.0</version>
                 <configuration>
+                    <release>9</release>
                     <source>1.7</source>
-                    <target>1.8</target>
-                    <encoding>UTF-8</encoding>
+                    <target>10</target>
                 </configuration>
             </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>3.0.2</version>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.1.0</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
                 <configuration>
-                    <encoding>UTF-8</encoding>
+                    <transformers>
+                        <transformer
+                                implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                            <mainClass>org.pcdev.simplegames.App</mainClass>
+                        </transformer>
+                    </transformers>
+                    <createDependencyReducedPom>false</createDependencyReducedPom>
                 </configuration>
             </plugin>
 
+
+            <!--
+            <plugin>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <version>3.1.0</version>
+            <configuration>
+            <descriptorRefs>
+              <descriptorRef>jar-with-dependencies</descriptorRef>
+            </descriptorRefs>
+            </configuration>
+
+
+            <executions>
+            <execution>
+              <id>make-assembly</id>
+              <phase>package</phase>
+              <goals>
+                  <goal>single</goal>
+              </goals>
+            </execution>
+            </executions>
+            </plugin>
+            -->
         </plugins>
     </build>
 </project>
