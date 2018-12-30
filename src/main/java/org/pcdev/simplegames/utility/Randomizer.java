@@ -1,4 +1,4 @@
-package org.pcdev.simplegames.useful;
+package org.pcdev.simplegames.utility;
 
 public class Randomizer {
 

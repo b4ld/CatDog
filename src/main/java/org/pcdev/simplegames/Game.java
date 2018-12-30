@@ -1,6 +1,34 @@
 package org.pcdev.simplegames;
 
+import org.academiadecodigo.simplegraphics.graphics.Color;
+import org.academiadecodigo.simplegraphics.graphics.Rectangle;
+
 public class Game {
+
+    private Rectangle board;
+    private static final int PADDING = 10;
+
+    void init(){
+        drawBoard();
+
+
+    }
+
+
+
+
+
+    //Draw game background
+    private void drawBoard() {
+        board = new Rectangle(PADDING , PADDING, 1200, 600);
+        board.setColor(Color.BLACK);
+        board.draw();
+    }
+
+
+
+
+
 
 
 
