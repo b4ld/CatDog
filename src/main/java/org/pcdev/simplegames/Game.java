@@ -8,19 +8,15 @@ public class Game {
     private Rectangle board;
     private static final int PADDING = 10;
 
-    void init(){
+    void init() {
         drawBoard();
 
 
     }
 
-
-
-
-
     //Draw game background
     private void drawBoard() {
-        board = new Rectangle(PADDING , PADDING, 1200, 600);
+        board = new Rectangle(PADDING, PADDING, 1200, 600);
         board.setColor(Color.BLACK);
         board.draw();
     }
