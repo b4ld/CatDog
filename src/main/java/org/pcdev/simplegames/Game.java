@@ -32,6 +32,7 @@ public class Game {
 
     private void initBackgroungImg(){
         backgroundImg = new Picture(PADDING,PADDING,"day1.png");
+        //for loop and array to simulate day and night
         backgroundImg.draw();
     }
 
