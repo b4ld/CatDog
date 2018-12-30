@@ -2,14 +2,22 @@ package org.pcdev.simplegames;
 
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
+import org.pcdev.simplegames.characters.Catdog;
+
+import java.awt.geom.PathIterator;
 
 public class Game {
 
     private Rectangle board;
+    private Picture backgroundImg;
     private static final int PADDING = 10;
+    private Catdog catdog;
 
     void init() {
         drawBoard();
+        initBackgroungImg();
+        initCatDog();
 
 
     }
@@ -19,6 +27,20 @@ public class Game {
         board = new Rectangle(PADDING, PADDING, 1200, 600);
         board.setColor(Color.BLACK);
         board.draw();
+    }
+
+
+    private void initBackgroungImg(){
+        backgroundImg = new Picture(PADDING,PADDING,"day1.png");
+        backgroundImg.draw();
+    }
+
+
+    private void initCatDog(){
+        catdog = new Catdog(10,450, "catdogImg.png");
+        catdog.drawCatdog();
+
+
     }
 
 
