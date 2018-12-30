@@ -5,7 +5,6 @@ import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.pcdev.simplegames.characters.Catdog;
 
-import java.awt.geom.PathIterator;
 
 public class Game {
 
@@ -19,10 +18,9 @@ public class Game {
         initBackgroungImg();
         initCatDog();
 
-
     }
 
-    //Draw game background
+    //Draw game frame view
     private void drawBoard() {
         board = new Rectangle(PADDING, PADDING, 1200, 600);
         board.setColor(Color.BLACK);
@@ -30,18 +28,18 @@ public class Game {
     }
 
 
-    private void initBackgroungImg(){
-        backgroundImg = new Picture(PADDING,PADDING,"day1.png");
-        //for loop and array to simulate day and night
-        backgroundImg.draw();
+    private void initBackgroungImg() {
+        int imgCounter = 1;
+        backgroundImg = new Picture(PADDING, PADDING, "day" + imgCounter + ".png");
+        // TODO : for loop and array to simulate day and night
+        //NOTE: EVERY TIME THE PICTURE IS REDAW STEPS IN FRONT:::::
+
     }
 
 
-    private void initCatDog(){
-        catdog = new Catdog(10,450, "catdogImg.png");
+    private void initCatDog() {
+        catdog = new Catdog(10, 450, "catdogImg.png");
         catdog.drawCatdog();
-
-
     }
 
 
