@@ -2,8 +2,12 @@ package org.pcdev.simplegames;
 
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
+import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
+import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
+import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.pcdev.simplegames.characters.Catdog;
+import org.pcdev.simplegames.user_interface.KeyBoardHandler;
 
 
 public class Game {
@@ -12,10 +16,12 @@ public class Game {
     private Picture backgroundImg;
     private static final int PADDING = 10;
     private Catdog catdog;
+    private KeyBoardHandler KeyBoardHandler;
+    private Keyboard keyboard;
 
     void init() {
         drawBoard();
-        initBackgroungImg();
+        initBackgroundImg();
         initCatDog();
 
     }
@@ -28,7 +34,7 @@ public class Game {
     }
 
 
-    private void initBackgroungImg() {
+    private void initBackgroundImg() {
         int imgCounter = 1;
         backgroundImg = new Picture(PADDING, PADDING, "day" + imgCounter + ".png");
         backgroundImg.draw();
@@ -41,9 +47,31 @@ public class Game {
     private void initCatDog() {
         catdog = new Catdog(10, 450, "catdogImg.png");
         catdog.drawCatdog();
+        KeyBoardHandler = new KeyBoardHandler(catdog);
+        initKeyBoard();
     }
 
+    private void initKeyBoard() {
 
+        keyboard = new Keyboard(KeyBoardHandler);
+
+        KeyboardEvent[] events = new KeyboardEvent[3];
+
+        for (int i = 0; i < events.length; i++) {
+            events[i] = new KeyboardEvent();
+        }
+
+
+        for (int i = 0; i < events.length; i++) {
+            events[i].setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+            keyboard.addEventListener(events[i]);
+        }
+
+        events[0].setKey(KeyboardEvent.KEY_RIGHT);
+        events[1].setKey(KeyboardEvent.KEY_LEFT);
+        events[2].setKey(KeyboardEvent.KEY_S);
+
+    }
 
 
 

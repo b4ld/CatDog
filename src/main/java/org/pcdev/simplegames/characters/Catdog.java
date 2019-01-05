@@ -15,4 +15,11 @@ public class Catdog {
         catdogImage.draw();
     }
 
+    public void move(int direction){
+        catdogImage.translate(direction,0);
+    }
+
+    public Picture getCatdogImage() {
+        return catdogImage;
+    }
 }
