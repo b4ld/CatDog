@@ -24,12 +24,6 @@ public class KeyBoardHandler implements KeyboardHandler {
             case KeyboardEvent.KEY_RIGHT:
                 catDog.move(50);
                 break;
-
-
-
-
-
-
         }
 
     }
