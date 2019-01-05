@@ -12,12 +12,9 @@ import org.pcdev.simplegames.user_interface.KeyBoardHandler;
 
 public class Game {
 
-    private Rectangle board;
-    private Picture backgroundImg;
     private static final int PADDING = 10;
     private Catdog catdog;
     private KeyBoardHandler KeyBoardHandler;
-    private Keyboard keyboard;
 
     void init() {
         drawBoard();
@@ -28,6 +25,7 @@ public class Game {
 
     //Draw game frame view
     private void drawBoard() {
+        Rectangle board;
         board = new Rectangle(PADDING, PADDING, 1200, 600);
         board.setColor(Color.BLACK);
         board.draw();
@@ -35,6 +33,7 @@ public class Game {
 
 
     private void initBackgroundImg() {
+        Picture backgroundImg;
         int imgCounter = 1;
         backgroundImg = new Picture(PADDING, PADDING, "day" + imgCounter + ".png");
         backgroundImg.draw();
@@ -53,20 +52,23 @@ public class Game {
 
     private void initKeyBoard() {
 
+        Keyboard keyboard;
+
         keyboard = new Keyboard(KeyBoardHandler);
 
         KeyboardEvent[] events = new KeyboardEvent[3];
 
+        //add new keyBoard to array
         for (int i = 0; i < events.length; i++) {
             events[i] = new KeyboardEvent();
         }
 
-
+        //add event to each
         for (int i = 0; i < events.length; i++) {
             events[i].setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
             keyboard.addEventListener(events[i]);
         }
-
+        //add specific key
         events[0].setKey(KeyboardEvent.KEY_RIGHT);
         events[1].setKey(KeyboardEvent.KEY_LEFT);
         events[2].setKey(KeyboardEvent.KEY_S);
