@@ -13,6 +13,9 @@ import org.pcdev.simplegames.user_interface.KeyBoardHandler;
 public class Game {
 
     private static final int PADDING = 10;
+    private final int INITIAL_CATDOG_X_POSITION = 250;
+    private final int INITIAL_CATDOG_Y_POSITION = 450;
+
     private Catdog catdog;
     private KeyBoardHandler KeyBoardHandler;
 
@@ -44,7 +47,8 @@ public class Game {
 
 
     private void initCatDog() {
-        catdog = new Catdog(10, 450, "catdogImg.png");
+
+        catdog = new Catdog(INITIAL_CATDOG_X_POSITION,INITIAL_CATDOG_Y_POSITION, "catdogImg.png");
         catdog.drawCatdog();
         KeyBoardHandler = new KeyBoardHandler(catdog);
         initKeyBoard();
