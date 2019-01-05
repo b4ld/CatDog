@@ -83,9 +83,9 @@ public class Game {
 
     private void dropDrops(){
 
-        for (int i = 0; i < 20 ; i++) {
+        for (int i = 0; i < 40 ; i++) {
             try {
-                Thread.sleep(30);
+                Thread.sleep(70);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

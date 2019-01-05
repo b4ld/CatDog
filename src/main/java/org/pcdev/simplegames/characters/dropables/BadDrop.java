@@ -14,7 +14,7 @@ public class BadDrop implements Dropable {
 
     @Override
     public void moveDown() {
-        drop.translate(0,40);
+        drop.translate(0,20);
     }
 
     @Override

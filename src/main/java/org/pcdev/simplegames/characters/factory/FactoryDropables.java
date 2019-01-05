@@ -14,12 +14,12 @@ public class FactoryDropables {
         System.out.println(random);
         //TODO . Random create drop
 
-        if (random >= 4) {
-            return new BadDrop(100, "bad2.jpeg");
+        if (random >= 1) {
+            return new BadDrop(-10, "bad2.jpeg");
 
         }
 
-        return new GoodDrop(100, "bone1.jpg");
+        return new GoodDrop(-10, "bone1.jpg");
     }
 
 }
