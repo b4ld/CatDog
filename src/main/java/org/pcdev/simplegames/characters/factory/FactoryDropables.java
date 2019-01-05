@@ -11,14 +11,15 @@ public class FactoryDropables {
     public Dropable createADrop() {
 
         int random = Randomizer.Random(10);
+        System.out.println(random);
         //TODO . Random create drop
 
-        if (random > 5) {
-            return new BadDrop(100, "bad2.png");
+        if (random >= 4) {
+            return new BadDrop(100, "bad2.jpeg");
 
         }
 
-        return new GoodDrop(100, "bone1.png");
+        return new GoodDrop(100, "bone1.jpg");
     }
 
 }

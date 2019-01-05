@@ -9,11 +9,16 @@ public class BadDrop implements Dropable {
 
 
     public BadDrop(double InitialY,String path) {
-        this.drop = new Picture(InitialY,-10,path);
+        this.drop = new Picture(-10,InitialY,path);
     }
 
     @Override
     public void moveDown() {
-        drop.translate(40,0);
+        drop.translate(0,40);
+    }
+
+    @Override
+    public void selfDraw() {
+        drop.draw();
     }
 }

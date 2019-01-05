@@ -7,6 +7,8 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.pcdev.simplegames.characters.Catdog;
+import org.pcdev.simplegames.characters.dropables.Dropable;
+import org.pcdev.simplegames.characters.factory.FactoryDropables;
 import org.pcdev.simplegames.user_interface.KeyBoardHandler;
 
 
@@ -20,6 +22,7 @@ public class Game {
     private KeyBoardHandler KeyBoardHandler;
     private KeyboardEvent keyboardEvent;
     private KeyboardEvent[] events = new KeyboardEvent[3];
+    private Dropable dropableProp;
 
 
     public void initStartMenu() {
@@ -31,6 +34,8 @@ public class Game {
         drawBoard();
         initBackgroundImg();
         initCatDog();
+        initDrops();
+        dropDrops();
 
     }
 
@@ -60,6 +65,40 @@ public class Game {
         KeyBoardHandler = new KeyBoardHandler(catdog);
         initKeyBoard();
     }
+
+
+
+    private void initDrops(){
+
+        FactoryDropables factoryDropables = new FactoryDropables();
+
+        Dropable dropable = factoryDropables.createADrop();
+
+        dropable.selfDraw();
+
+
+        dropableProp=dropable;
+
+    }
+
+    private void dropDrops(){
+
+        for (int i = 0; i < 20 ; i++) {
+            try {
+                Thread.sleep(30);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            dropableProp.moveDown();
+        }
+
+
+    }
+
+
+
+
+
 
     private void initKeyBoard() {
 
