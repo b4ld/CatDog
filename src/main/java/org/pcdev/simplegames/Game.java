@@ -31,6 +31,7 @@ public class Game {
     private void initBackgroungImg() {
         int imgCounter = 1;
         backgroundImg = new Picture(PADDING, PADDING, "day" + imgCounter + ".png");
+        backgroundImg.draw();
         // TODO : for loop and array to simulate day and night
         //NOTE: EVERY TIME THE PICTURE IS REDAW STEPS IN FRONT:::::
 
@@ -41,6 +42,9 @@ public class Game {
         catdog = new Catdog(10, 450, "catdogImg.png");
         catdog.drawCatdog();
     }
+
+
+
 
 
 
