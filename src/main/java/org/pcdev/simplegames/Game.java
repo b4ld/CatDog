@@ -18,37 +18,44 @@ public class Game {
 
     private Catdog catdog;
     private KeyBoardHandler KeyBoardHandler;
+    private KeyboardEvent keyboardEvent;
+    private KeyboardEvent[] events = new KeyboardEvent[3];
 
-    void init() {
+
+    public void initStartMenu() {
+        Picture startMenuImg = new Picture(PADDING, PADDING, "day10.png");
+
+    }
+
+    public void init() {
         drawBoard();
         initBackgroundImg();
         initCatDog();
 
     }
 
+
     //Draw game frame view
     private void drawBoard() {
-        Rectangle board;
-        board = new Rectangle(PADDING, PADDING, 1200, 600);
+        Rectangle board = new Rectangle(PADDING, PADDING, 1200, 600);
         board.setColor(Color.BLACK);
         board.draw();
     }
 
 
     private void initBackgroundImg() {
-        Picture backgroundImg;
         int imgCounter = 1;
-        backgroundImg = new Picture(PADDING, PADDING, "day" + imgCounter + ".png");
+        Picture backgroundImg = new Picture(PADDING, PADDING, "day" + imgCounter + ".png");
         backgroundImg.draw();
         // TODO : for loop and array to simulate day and night
-        //NOTE: EVERY TIME THE PICTURE IS REDAW STEPS IN FRONT:::::
+        //NOTE: EVERY TIME THE PICTURE IS REDRAW STEPS IN FRONT:::::
 
     }
 
 
     private void initCatDog() {
 
-        catdog = new Catdog(INITIAL_CATDOG_X_POSITION,INITIAL_CATDOG_Y_POSITION, "catdogImg.png");
+        catdog = new Catdog(INITIAL_CATDOG_X_POSITION, INITIAL_CATDOG_Y_POSITION, "catdogImg.png");
         catdog.drawCatdog();
         KeyBoardHandler = new KeyBoardHandler(catdog);
         initKeyBoard();
@@ -56,11 +63,8 @@ public class Game {
 
     private void initKeyBoard() {
 
-        Keyboard keyboard;
+        Keyboard keyboard = new Keyboard(KeyBoardHandler);
 
-        keyboard = new Keyboard(KeyBoardHandler);
-
-        KeyboardEvent[] events = new KeyboardEvent[3];
 
         //add new keyBoard to array
         for (int i = 0; i < events.length; i++) {
@@ -79,69 +83,5 @@ public class Game {
 
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-    private void initKeyboard() {
-
-        keyboard = new Keyboard(movements);
-
-
-//Inicializar um array de keyboardEvents
-        KeyboardEvent[] events = new KeyboardEvent[5];
-        for (int i = 0; i < events.length; i++) {
-            events[i] = new KeyboardEvent();
-        }
-//atribuir cada evento a uma posição do array
-        events[0].setKey(KeyboardEvent.KEY_RIGHT);
-        events[1].setKey(KeyboardEvent.KEY_UP);
-        events[2].setKey(KeyboardEvent.KEY_DOWN);
-        events[3].setKey(KeyboardEvent.KEY_LEFT);
-
-        events[4].setKey(KeyboardEvent.KEY_SPACE);
-
-
-//criar array de Listeners,if only KEY_PRESSED
-        for (int i = 0; i < events.length; i++) {
-            events[i].setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
-            keyboard.addEventListener(events[i]);
-        }
-    }
-
-        */
 
 }
